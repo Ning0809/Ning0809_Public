@@ -1,0 +1,341 @@
+:root{
+    --green: #198754;
+  }
+  body{
+    margin: auto;
+    width: 980px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-image: url(./skzoo/bgc.jpg);
+    background-color: rgba(0, 0, 0, 0.1);
+    background-blend-mode: multiply;
+  }
+  .time-box{
+    width: 100%;
+    margin-top: 60px;
+    height: 100px;
+  }
+  .timebar{
+    margin: auto;
+    width: 900px;
+    height: 60px;
+    box-shadow: inset;
+    position: relative;
+    overflow: hidden;
+    transition: 2s;
+  }
+  .timebarline{
+    opacity: 0.9;
+    width: 0px;
+    height: 120%;
+    background: linear-gradient(to top right, #198754 0%, #fff 300%);
+  }
+  
+  .container{
+    width: 100%;
+    margin: auto;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .card-box{
+    position: relative;
+    width: 700px;
+    box-sizing: border-box;
+    padding: 20px 0px;
+  }
+  .row{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+  .col{
+    box-sizing: border-box;
+    width: 80px;
+    height: 80px;
+    margin: 2px;
+    padding: 0;
+    overflow: hidden;
+  }
+  .col img{
+    width: 100%;
+  }
+  .card{
+    transition: 0.5s;
+    transform-style: preserve-3d;
+    position: relative;
+  }
+  .img{
+    opacity: 0;
+    transition: 0.5s;
+  }
+  .imgback{
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    opacity: 1;
+    transition: 0.5s;
+  }
+  [turn=true]{
+    opacity: 0;
+  }
+  [turn=false]{
+    opacity: 1;
+  }
+  [done=true]{
+    opacity: 1;
+  }
+  .btn-box{
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .btn{
+    margin: 10px 10px 10px 60px ;
+    width: 180px;
+    background-color: #198754;
+    color:#fff;
+    transition: 0.5s;
+    position: relative;
+  }
+  .btn:hover{
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  .btn-pic{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -60px;
+    margin: auto;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+  }
+  .btn-pic img{
+    position: absolute;
+    width:140%;
+    opacity: 1;
+    transition: 0.3s;
+  }
+  .btn span,.btn a{
+    display: block;
+    font-size:30px;
+    font-family: 'Permanent Marker', cursive;
+    height: 60px;
+    line-height: 60px;
+    transition: 0.5s;
+  }
+  .btn a{text-decoration: none; color: #fff;}
+  .btn:hover span,.btn:hover a{
+    transform: translateX(-20px);
+    color:#198754;
+    font-size: 24px;
+  }
+  .btn:hover .btn-pic{
+    transform: translateX(-60px) scale(1.2);
+  }
+  .btn:hover .btn-pic img{
+    opacity: 1;
+  }
+  .countdown{
+    width: 100%;
+    height: 300px;
+    position: fixed;
+    top:150px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+    z-index: 5;
+  }
+  .countdownp{
+    display: inline-block;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 250px;
+    font-weight: 600;
+    color:#dc3545;
+  }
+  .resultbox{
+    outline: 5px solid #198754;
+    border-radius: 10px;
+    width: 100%;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    overflow: hidden;
+    z-index: 3;
+    opacity: 0;
+    transition: 0.5s;
+  }
+  .loseimg{
+    position: relative;
+    width: 120%;
+    left: -60px;
+  }
+  .winimg{
+    position: relative;
+    width: 110%;
+    left: -40px;
+    top:-10px;
+  }
+  .pigwalk{
+    position: absolute; 
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 700px;
+    height: 400px;
+    z-index: 3;
+  }
+  .pig{
+    position: absolute;
+    width: 60px;
+    top:300px;
+    left: 600px;
+  }
+  .leebit{
+    position: absolute; 
+    background-color: rgba(0, 0, 0, 0.8);
+    top:0;
+    bottom: 0;
+    left: -1500px;
+    margin: auto;
+    overflow: hidden;
+    width: 1000px;
+    height: 400px;
+    z-index: 3;
+    transition: 2s;
+    opacity: 0;
+  }
+  .leebitimg{
+    vertical-align: top;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    width: 60%;
+  }
+  .startpage{
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    position: fixed;
+    z-index: 10;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+  }
+  .startpage img{
+    margin: auto;
+    height: 100%;
+  }
+  .btn-start{
+    font-family: 'Permanent Marker', cursive;
+    width: 40%;
+    height: 8%;
+    position: absolute;
+    color:#fff;
+    font-size: 36px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: 8%;
+    background-color: #198754;
+    transition: 0.5s;
+    text-align: center;
+  }
+  .btn-start span{
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+    /* line-height: 80%; */
+  }
+  .btn-start:hover{
+    transform: scale(1.1);
+    cursor:pointer;
+  }
+  #start{
+    display: none;
+  }
+  #start:checked ~ .startpage{
+    display: none;
+  }
+
+  @media screen and (max-width:992px) {
+    body{width: 800px;}
+    .time-box{width: 100%;
+    padding: 0;
+    display: flex;
+    justify-content: center;}
+    .timebar{
+      transform: scale(0.7);
+      margin:0;
+
+    }
+    .container{width: 800px;
+      flex-wrap: nowrap;
+    }
+    .card-box{width:450px;
+      margin: 0;
+      overflow: hidden;}
+    .card{
+      width: 50px;
+      height: 50px;
+    }
+    .btn-box{
+      width: 140px;
+      padding: 0;
+    }
+    .btn{
+      width: 120px;
+      height: 50px;
+      margin: 10px;
+    }
+    .btn span,.btn a{
+      height: 40px;
+      line-height: 40px; 
+      font-size: 20px;}
+    .btn-pic{
+      width: 30px;
+      height: 30px;
+    }
+    .countdownp{
+      font-size: 150px;
+    }
+    .btn-start{
+      font-size: 20px;
+    }
+    .btn-start span{
+      padding-top: 10px;
+    }
+    .leebit{height: 100%}
+    .winimg{
+      left: 20px;
+    }
+    .loseimg{
+      left: -20px;
+    }        
+
+
+    
+  }

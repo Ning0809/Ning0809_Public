@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Calender</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Koulen&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/81c2f83ad1.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./Calendar.css">
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+    <header class="container mt-3">
+        <div class="banner">
+            <h1>Calender</h1>
+        </div>
+        <button class="left" onclick="premonth()"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="right" onclick="nextmonth()"><i class="fa-solid fa-chevron-right"></i></button>
+        <i class="selectmonth fa-solid fa-calendar-day" data-bs-toggle="modal" data-bs-target="#selctmodal"></i>
+    </header>
+
+    <div class="container mt-5">
+        <div class="head">
+            <div class="head-row row">
+                <div class="head-col col border border-1 border-secondary rounded-1 m-1 ">Sunday</div>
+                <div class="head-col col border border-1 border-secondary rounded-1 m-1 ">Monday</div>
+                <div class="head-col col border border-1 border-secondary rounded-1 m-1 ">Tuesday</div>
+                <div class="head-col col border border-1 border-secondary rounded-1 m-1 ">Wednesday</div>
+                <div class="head-col col border border-1 border-secondary rounded-1 m-1 ">Thursday</div>
+                <div class="head-col col border border-1 border-secondary rounded-1 m-1 ">Friday</div>
+                <div class="head-col col border border-1 border-secondary rounded-1 m-1 ">Saturday</div>
+            </div>
+        </div>
+        
+        <div class="body"></div>
+
+    </div>
+
+
+    <!-- 切換月份 modal -->
+    <div class="modal" id ="selctmodal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">選擇年月</h5>
+          </div>
+          <div class="modal-body">
+              <input type="month" id="inputmonth">
+          </div>
+          <div class="modal-footer">
+              
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-success" onclick="changemonth()"  data-bs-dismiss="modal">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--新增事項 modal-->
+    <div class="modal" id ="createmodal" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">新增事項</h5>
+            </div>
+            <div class="modal-body">
+                <input type="datetime-local" id="createtime">
+                <input type="text" id="createtodo">            
+
+            </div>
+            <div class="modal-footer">
+                <div class="color-box m-auto d-flex flex-wrap  justify-content-center">
+                    <div onclick="selectcolor()" class="color m-1" id="blue"></div>
+                    <div onclick="selectcolor()" class="color m-1" id="pink"></div>
+                    <div onclick="selectcolor()" class="color m-1" id="red"></div>
+                    <div onclick="selectcolor()" class="color m-1" id="yellow"></div>
+                </div>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-success"  data-bs-dismiss="modal" onclick="createlog()">OK</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!--編輯、刪除事項 modal-->
+    <div class="modal" id ="editmodal" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">編輯事項</h5>
+              <p class="editdate"></p>
+              <div class="colorview"></div>
+            </div>
+            <div class="modal-body">
+                <input type="time" id="edittime">
+                <input type="text" id="edittodo"> 
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="delete" class="btn btn-danger" onclick="deletelog()">刪除</button>
+                <button type="button" class="btn btn-success"  data-bs-dismiss="modal" onclick="editlog()">OK</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    
+
+
+    <script>
+
+        const today = new Date
+        let year = today.getFullYear()
+        let month = today.getMonth()
+        let thedate = today.getDate()
+
+
+        const banner = document.querySelector('.banner')
+        const body = document.querySelector('.body')
+        const selectmodal = document.querySelector('#selectmodal')
+        const createmodal = document.querySelector('#createmodal')
+        const inputtime = createmodal.querySelector('#createtime')
+        const inputtodo = createmodal.querySelector('#createtodo')
+        const editmoal = document.querySelector('#editmodal')
+        
+
+        window.onload=function(){
+            init()
+        }
+        //初始化
+        function init(){
+            let title = document.createElement('h2')
+            title.innerText=`${year}/${month+1}`
+            banner.append(title)
+
+            let firstday = new Date(year,month,1).getDay() //1號星期幾
+            let days = new Date(year,month+1,0).getDate() //天數
+            let day=1
+            let rows = Math.ceil( (firstday+days) / 7) 
+
+            //判斷day從第幾格開始 (0~6)
+            //判斷要多少row
+            for(r=0;r<rows;r++){
+                let row = document.createElement('div')
+                row.className='body-row row'
+                for(c=0;c<7;c++){
+                    //第一排 firstday-0的部分=上個月
+                    //最後一排 day>days的部分=下個月
+                    
+                    let col = document.createElement('div')
+                    let date = day-firstday
+                    
+                    if(r==0 &&  c<firstday)
+                    {col.className='col othercol rounded-1 m-1'}
+                    else if(r==rows-1 && date>days)
+                    {col.className='col othercol rounded-1 m-1'}
+                    else{
+                        col.className='body-col col rounded-1 m-1'
+                        col.onclick=()=>{bootstrap.Modal.getOrCreateInstance(createmodal).show();}
+                        let title = document.createElement('h2')
+                        title.innerText=date
+                        col.append(title)
+                        
+                        //尋找localstorage是否有key
+                        let key =`${year},${month+1},${date}`
+                        let values =JSON.parse(localStorage.getItem((key))) 
+                        // console.log(values)    
+                        if(values!=null){
+                            values.forEach((value,index)=>{
+                                let ul = document.createElement('ul')
+                                let li = document.createElement('li')
+                                let colortag = document.createElement('div')
+                                colortag.className='colortag'
+                                colortag.id=`${value.color}`
+                                colortag.innerText=value.time
+                                let text = document.createElement('div')
+                                text.className='text'
+                                text.innerText=value.todo
+                                li.append(colortag,text)
+                                li.onclick=()=>{
+                                    event.stopPropagation()
+                                    bootstrap.Modal.getOrCreateInstance(editmodal).show();
+                                    editmoal.querySelector('.editdate').innerText=key
+                                    editmoal.querySelector('.editdate').setAttribute('index',index)
+                                    editmoal.querySelector('.colorview').id = value.color
+                                    editmoal.querySelector('#edittime').value = value.time
+                                    editmoal.querySelector('#edittodo').value = value.todo
+                                }
+                                
+                                
+                                ul.append(li)
+                                
+                                
+                                col.append(ul)
+                            })
+                        }
+                    }
+                    day++
+                    row.append(col)    
+                }
+                body.append(row)
+                // getlist()
+                
+            }
+            tagthedate()
+        }
+        //上月按鈕
+        function premonth(){
+            month--
+            if(month==-1){
+                month=11
+                year--
+            }
+            clean()
+            init()
+        }
+        //下月按鈕
+        function nextmonth(){
+            month++
+            if(month==12){
+                month=0
+                year++
+            }
+            clean()
+            init()
+        }
+        //清除格子
+        function clean(){
+            banner.innerHTML=''
+            let rows = document.querySelectorAll('.body-row')
+            
+            for(i=0;i<rows.length;i++){
+                let row = document.querySelector('.body-row')
+                body.removeChild(row)
+            }
+        }
+        //標示當日
+        function tagthedate(){
+            let h2 = document.querySelectorAll('h2')
+            let theh2 = Array.from(h2).find(x=>x.innerText==thedate)
+            theh2.parentElement.style.outline='3px solid #7E8C75;'
+            theh2.parentElement.style.boxShadow ='0px 0px 5px 3px inset'
+        }
+        //用input變換年月
+        function changemonth(){
+            let selectdate = document.querySelector('#inputmonth').value.split('-')
+            console.log(selectdate)
+            if(selectdate!=''){
+                year = selectdate[0]
+                month = parseInt(selectdate[1]) -1
+                clean()
+                init()
+                
+            }
+        }
+        //選擇顏色
+        function selectcolor(){
+            let color = document.querySelectorAll('.color')
+            color.forEach(x=>{
+                x.removeAttribute('selected')
+            })
+            event.target.setAttribute('selected',true)
+  
+        }
+        //推入localstorage
+        function createlog(){
+            //inputtime、inputtodo、thecolor推入localstorage
+            let input = inputtime.value.split('T')
+            let todo = inputtodo.value
+            let color = document.querySelector('[selected]').id
+            let date = input[0].split('-').map(x=>  parseInt(x))
+            let time = input[1]
+            let key =`${date[0]},${date[1]},${date[2]}`
+            let log = {color,time,todo}
+            let list=[]
+            
+            if(localStorage.getItem(key)==null){
+                list.push(log)
+            }
+            else{
+                list = JSON.parse(localStorage.getItem(date))
+                console.log(list)
+                list.push(log)
+            }
+            localStorage.setItem(key,JSON.stringify(list))
+            clean()
+            init()
+        }
+
+        function editlog(){
+            let key = editmodal.querySelector('.editdate').innerText
+            let value = JSON.parse(localStorage.getItem(key)) 
+            let time = editmodal.querySelector('#edittime').value
+            let todo = editmodal.querySelector('#edittodo').value
+            let color = editmodal.querySelector('.colorview').id
+            let index = editmodal.querySelector('.editdate').getAttribute('index')
+            value[index] = {color,time,todo}
+            localStorage.setItem(key,JSON.stringify(value)) 
+            clean()
+            init()
+        }
+
+        function deletelog(){
+            let key = editmodal.querySelector('.editdate').innerText
+            let value = JSON.parse(localStorage.getItem(key))
+            let index = editmodal.querySelector('.editdate').getAttribute('index')
+            value.splice(index,1)
+            localStorage.setItem(key,JSON.stringify(value)) 
+            bootstrap.Modal.getOrCreateInstance(editmodal).hide();
+            clean()
+            init()
+        }
+        
+        //編輯、刪除功能
+
+
+    </script>
+
+  </body>
+</html>

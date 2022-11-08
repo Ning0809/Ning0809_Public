@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/81c2f83ad1.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./grid.css">
+    <link rel="stylesheet" href="./sunplantlab.css">
+</head>
+<body>
+    <input type="checkbox" id="video-switch">
+    <input type="checkbox" id="main-nav-switch">
+    <input type="checkbox" id="mobile-subhome-switch">
+    <input type="checkbox" id="mobile-subshop-switch">
+    <input type="checkbox" id="mobile-subfeatured-switch">
+    <input type="checkbox" id="mobile-subpages-switch">
+    <input type="checkbox" id="mobile-subelement-switch">
+    <input type="checkbox" id="search-switch">
+    <input type="checkbox" id="cart-switch">
+    <input type="checkbox" id="user-switch">
+
+    <div class="gotop">
+        <a href="#" class="fa-solid fa-angle-up"></a>
+    </div>
+    <div class="search-block">
+        <p>Start typing and hit Enter</p>
+        <div class="search-box">
+            <input class="search-input" type="text" placeholder="Search anything">
+            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+        <label for="search-switch" class="fa-solid fa-xmark"></label>
+    </div>
+    <div class="cart-page-bg"></div>
+    <div class="cart-block">
+        <div class="cart-block-nav">
+            <label for="cart-switch" class="fa-solid fa-xmark"></label>
+            <p>SHOPPING CART</p>
+            <div class="cart-info">0</div>
+        </div>
+        <p class="cart-msg">Your shopping bag is empty</p>
+        <a href="#" class="shop-link">
+            GO TO THE SHOP
+        </a>
+    </div>
+    <div class="user-page">
+        <div class="user-block">
+            <label for="user-switch" class="user-block-close fa-solid fa-xmark"></label>
+            <img src="./img/img/logo.webp" alt="sunplant">
+            <p>Great to have you back!</p>
+            <input type="text" placeholder="Email address" id="">
+            <input type="text" placeholder="Password" id="">
+            <a href="#">Forgot your password?</a>
+            <a href="#" class="login">LOG IN</a>
+            <div class="register">
+                Don't have an accourt?
+                <a href="#">Register now <i class="fa-solid fa-arrow-right-long"></i></a>
+            </div>
+        </div>
+    </div>
+
+
+    <header>
+        <div class="container">
+            <div class="row row-cols-3 row-cols-md-3">
+                <nav class="main-nav col">
+                    <ul class="row row-cols-md-5">
+                        <div class="mobile-banner">
+                            <div class="mobile-menu">
+                                <a href="#">
+                                    <div class="mobile-menu-icon">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                    MENU
+                                </a>
+                            </div>
+                            <label for="user-switch" class="mobile-login">
+                                <i  class="fa-solid fa-circle-user"></i>
+                                LOGIN
+                            </label>
+                        </div>
+                        
+                        <li class="home menu-lv1 col">
+                            <a href="#">HOME</a>
+                            <label for="mobile-subhome-switch" class="fa-solid fa-angle-right"></label>
+                            <div class="home-menu row-cols-md-3">
+                                <a href="#" class="col">
+                                    <img src="./img/1.jpg" alt="sunplant">
+                                    <p>Home 1</p>
+                                </a href="#">
+                                <a href="#" class="col">
+                                    <img src="./img/2.jpg" alt="sunplant">
+                                    <p>Home 2</p>
+                                </a href="#">
+                                <a href="#" class="col">
+                                    <img src="./img/3.jpg" alt="sunplant">
+                                    <p>Home 3</p>
+                                </a href="#">
+                                <a href="#" class="col">
+                                    <img src="./img/4.jpg" alt="sunplant">
+                                    <p>Home 4</p>
+                                </a href="#">
+                                <a href="#" class="col">
+                                    <img src="./img/5.jpg" alt="sunplant">
+                                    <p>Home 5</p>
+                                </a href="#">
+                        </li>
+                        <li class="shop menu-lv1 col">
+                            <a href="#">SHOP</a>
+                            <label for="mobile-subshop-switch" class="fa-solid fa-angle-right"></label>
+                            <ul class="shop-menu menu-lv2">
+                                <li>
+                                    <a href="#">SHOP FILTER</a>
+                                    <a href="#">Filter Push Left</a>
+                                    <a href="#">Filter Colappse</a>
+                                </li>
+                                <li>
+                                    <a href="#">SHOP LAYOUT</a>
+                                    <a href="#">Full width</a>
+                                    <a href="#">Side Bar Left</a>
+                                    <a href="#">Side Bar Right</a>
+                                    <a href="#">Infinity Scroll</a>
+                                    <a href="#">Product List</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="featured menu-lv1 col">
+                            <a href="#">FEATURED</a>
+                            <label for="mobile-subfeatured-switch" class="fa-solid fa-angle-right"></label>
+                            <ul class="featured-menu menu-lv2">
+                                <li>
+                                    <a href="#">BLOG LAYOUTS</a>
+                                    <a href="#">Blog Standar No Sidebar</a>
+                                    <a href="#">Blog Standar Sidebar Left</a>
+                                    <a href="#">Blog Standar Sidebar Right</a>
+                                    <a href="#">Blog Grid No Sidebar</a>
+                                    <a href="#">Blog Grid Sidebar</a>
+                                </li>
+                                <li>
+                                    <a href="#">PRODUCT LAYOUT</a>
+                                    <a href="#">Product Large Images</a>
+                                    <a href="#">Product Extended</a>
+                                    <a href="#">Product Gallery</a>
+                                    <a href="#">Product Sticky</a>
+                                    <a href="#">Product Sidebar</a>
+                                </li>
+                                <li>
+                                    <a href="#">PRODUCT TYPES</a>
+                                    <a href="#">Variable</a>
+                                    <a href="#">Video</a>
+                                    <a href="#">360 Degree</a>
+                                    <a href="#">Affiliate</a>
+                                    <a href="#">Simple</a>
+                                    <a href="#">Out of stock</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="pages menu-lv1 col">
+                            <a href="#">PAGES</a>
+                            <label for="mobile-subpages-switch" class="fa-solid fa-angle-right"></label>
+                            <ul class="pages-menu">
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="#">Wishlist</a></li>
+                            </ul>
+                        </li>
+                        <li class="element menu-lv1 col">
+                            <a href="#">ELEMENT</a>
+                            <label for="mobile-subelement-switch" class="fa-solid fa-angle-right"></label>
+                            <ul class="element-menu menu-lv2">
+                                <li>
+                                    <a href="#">MAIN STYLE</a>
+                                    <a href="#">No Sidebar</a>
+                                    <a href="#">Default – Menu right</a>
+                                    <a href="#">Minimal</a>
+                                    <a href="#">Classic</a>
+                                    <a href="#">Modren</a>
+                                </li>
+                                <li>
+                                    <a href="#">POST FOMAT</a>
+                                    <a href="#">Elementor</a>
+                                    <a href="#">Logo on menu</a>
+                                    <a href="#">Default – Menu Left</a>
+                                    <a href="#">Logo in menu</a>
+                                </li>
+                                <li></li>
+                            </ul>
+                        </li>
+                        <label class="mobile-close" for="main-nav-switch">
+                            <i class="fa-solid fa-xmark"></i>
+                            CLOSE
+                        </label>
+                    </ul>
+                </nav>
+                
+                <div class="logo col">
+                    <a href="#">
+                        <h1>SUN PLANT</h1>
+                        <img src="./img/logo.webp" alt="SunPlant">
+                    </a>
+                </div>
+                <div class="func-nav col">
+                    <label class="func-nav search fa-solid fa-magnifying-glass" for="search-switch"></label>
+                    <label class="func-nav login fa-solid fa-circle-user" for="user-switch"></label>
+                    <label class="func-nav cart fa-solid fa-basket-shopping" for="cart-switch">
+                        <div class="cart-info">0</div>
+                    </label>
+                </div>
+                <label for="main-nav-switch" class="hb col">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <div class="main-view row-cols-2 row">           
+            <div class="main-view-text col">
+                <h2>Collection New<br>Beautiful</h2>
+                <p>from $69</p>
+                <a  class="shop-link" href="#">SHOP NOW</a>
+                
+            </div>
+            <div class="main-view-pic col">
+                <img src="./img/slidesho10-small-1.webp" alt="Collection New Beautiful">
+
+            </div>
+        </div>
+        <section class="intro container">
+            <h2>The important benefits of<br>
+                greenery for the environment and health</h2>
+            <span>Trees have always been considered as "lungs" of the earth. Planting lots of trees helps provide a great deal of oxygen for us to breathe.<br>
+            On average, one tree can provide enough oxygen for four people. At the same time they also absorb C02, ammonia, S02, .. in the world!</span>
+            <div class="row row-cols-md-3 intro-content">
+                <div class="col row row-cols-3  intro-content-text">
+                    <div>
+                        <h3>Reducing environmental pollution</h3>
+                        <p>Trees have always been considered as "lungs" of the earth.</p>
+                    </div>
+                    <div>
+                        <h3>Save water and reduce soil erosion</h3>
+                        <p>Trees can slow down the evaporation of water, increasing air humidity.</p>
+                    </div>
+                    <div>
+                        <h3>Reduce street temperatures</h3>
+                        <p>Planting more trees in densely populated areas will not only make the air there more fresh</p>
+                    </div>
+                </div>
+                <a href="#" class="col">
+                    <img src="./img/info-v2.webp" alt="benefits of
+                    greenery">
+                </a>
+                <div class="col row row-cols-3 intro-content-text">
+                    <div>
+                        <h3>Energy conservation</h3>
+                        <p>One tree can cool down, cool down 10 rooms</p>
+                    </div>
+                    <div>
+                        <h3>Prevent ultraviolet influence</h3>
+                        <p>Green trees become shade to block the sunlight from the road</p>
+                    </div>
+                    <div>
+                        <h3>Improve human health</h3>
+                        <p>Living in a quiet, cool, clean and fresh environment will make your health better</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="shoplist container">
+            <h2>Staff.Pick</h2>
+            <ul class="row row-cols-2 row-cols-md-3  shoplist-block">
+                <li class="col item">
+                    <a href="#">
+                        <img src="./img/1-1.jpg" alt="Sapien Libero">
+                        <img class="detail"   src="./img/1-2.jpg" alt="Sapien Libero">
+                        <div class="white"></div>                        
+                    </a>
+                    <div class="item-func">
+                        <a href="#"><i class="fa-solid fa-heart"></i></a>
+                        <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    </div>
+                    <a class="item-title"  href="#">Sapien Libero</a>
+                    <span>$150.00</span>
+                </li>
+                <li class="col item">
+                    <a href="#">
+                        <img src="./img/2-1.jpg" alt="Sapien Libero">
+                        <img class="detail"   src="./img/2-2.jpg" alt="Sapien Libero">
+                        <div class="white"></div>
+                        <div class="tag-sale">SALE</div>
+                    </a>
+                    <div class="item-func">
+                        <a href="#"><i class="fa-solid fa-heart"></i></a>
+                        <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    </div>
+                    <a class="item-title"  href="#">Fringilla Augue 360</a>
+                    <span>$150.00</span>
+                </li>
+                <li class="col item">
+                    <a href="#">
+                        <img src="./img/3-1.jpg" alt="Sapien Libero">
+                        <img class="detail"   src="./img/3-2.jpg" alt="Sapien Libero">
+                        <div class="white"></div>
+                        <div class="tag-sale">SALE</div>
+                    </a>
+                    <div class="item-func">
+                        <a href="#"><i class="fa-solid fa-heart"></i></a>
+                        <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    </div>
+                    <a class="item-title"  href="#">Faded Short Sleeves Variable</a>
+                    <span>$150.00</span>
+                </li>
+                <li class="col item">
+                    <a href="#">
+                        <img src="./img/4-1.jpg" alt="Sapien Libero">
+                        <img class="detail"   src="./img/4-2.jpg" alt="Sapien Libero">
+                        <div class="white"></div>                        
+                    </a>
+                    <div class="item-func">
+                        <a href="#"><i class="fa-solid fa-heart"></i></a>
+                        <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    </div>
+                    <a class="item-title"  href="#">Purple Flowers</a>
+                    <span>$180.00</span>
+                </li>
+                <li class="col item">
+                    <a href="#">
+                        <img src="./img/5-1.jpg" alt="Sapien Libero">
+                        <img class="detail"   src="./img/5-2.jpg" alt="Sapien Libero">
+                        <div class="white"></div>
+                        <div class="tag-soldout">SOLD OUT</div>
+                    </a>
+                    <div class="item-func">
+                        <a href="#"><i class="fa-solid fa-heart"></i></a>
+                        <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    </div>
+                    <a class="item-title"  href="#">Adipiscing Cursus Out Of Stock</a>
+                    <span>$450.00</span>
+                </li>
+                <li class="col item">
+                    <a href="#">
+                        <img src="./img/6-1.jpg" alt="Sapien Libero">
+                        <img class="detail"   src="./img/6-2.jpg" alt="Sapien Libero">
+                        <div class="white"></div>
+                    </a>
+                    <div class="item-func">
+                        <a href="#"><i class="fa-solid fa-heart"></i></a>
+                        <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    </div>
+                    <a class="item-title"  href="#">Fringilla Augue</a>
+                    <span>$320.00</span>
+                </li>
+                <li class="col item">
+                    <a href="#">
+                        <img src="./img/1-2.jpg" alt="Sapien Libero">
+                        <img class="detail"   src="./img/4-2.jpg" alt="Sapien Libero">
+                        <div class="white"></div>
+                        <div class="tag-sale">SALE</div>
+                    </a>
+                    <div class="item-func">
+                        <a href="#"><i class="fa-solid fa-heart"></i></a>
+                        <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    </div>
+                    <a class="item-title"  href="#">Purple Flowers</a>
+                    <span>$150.00</span>
+                </li>
+                <li class="col item">
+                    <a href="#">
+                        <img src="./img/1-1.jpg" alt="Sapien Libero">
+                        <img class="detail"   src="./img/4-1.jpg" alt="Sapien Libero">
+                        <div class="white"></div>
+                        <div class="tag-sale">SALE</div>
+                    </a>
+                    <div class="item-func">
+                        <a href="#"><i class="fa-solid fa-heart"></i></a>
+                        <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    </div>
+                    <a class="item-title"  href="#">Plant</a>
+                    <span>$150.00</span>
+                </li>
+                <li class="col item">
+                    <a href="#">
+                        <img src="./img/9-1.jpg" alt="Sapien Libero">
+                        <img class="detail"   src="./img/3-1.jpg" alt="Sapien Libero">
+                        <div class="white"></div>
+                    </a>
+                    <div class="item-func">
+                        <a href="#"><i class="fa-solid fa-heart"></i></a>
+                        <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    </div>
+                    <a class="item-title"  href="#">Plant Beautiful</a>
+                    <span>$150.00</span>
+                </li>
+            </ul>
+        </div>
+        <div class="row row-cols-md-2  product">   
+            <div class="col product-text">
+                <h2>A Number Of Our Products</h2>
+                <p>Pick up all you need to keep your board in optimum condition with Decathlon’s set of surfboard accessories.
+                </p>
+                <a class="shop-link" href="">SHOP NOW
+                </a>
+            </div>
+            <div class="col product-iframe-block">
+                <div class="product-iframe">
+                    <img src="./img/video1.webp" alt="A Number Of Our Products">
+                <label class="tag-play" for="video-switch"><i class="fa-solid fa-play"></i></ㄠ>
+                </div>
+            </div>
+            <div class="product-video">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/nkhpGC10OVw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <label class="close" for="video-switch"><i class="fa-solid fa-xmark"></i></label>
+            </div>
+        </div>
+        <div class="social container">
+            <i class="fa-brands fa-instagram"></i>
+            <span>SHOP INSTAGRAM</span>
+            <div class="row row-cols-3 row-cols-md-4 social-link">
+                <div class="col">
+                    <a href="#">
+                        <img src="./img/instagram1.jpg" alt="instagram">
+                        <div class="social-bg"></div>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="#">
+                        <img src="./img/instagram2.jpg" alt="instagram">
+                        <div class="social-bg"></div>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="#">
+                        <img src="./img/instagram3.jpg" alt="instagram">
+                        <div class="social-bg"></div>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="#">
+                        <img src="./img/instagram4.jpg" alt="instagram">
+                        <div class="social-bg"></div>
+                    </a>
+                </div>
+            </div> 
+
+        </div>
+    </main>
+
+    <footer>
+        <a class="logo">
+            <img src="./img/logo.webp" alt="sunplant">
+        </a>
+        <div class="contact">
+            <a href="#">ABOUT US</a>
+            <a href="">COSTOMER SERVICE</a>
+            <a href="#">SUBSCRIPTION</a>
+        </div>
+        <div class="row row-cols-4 footer-social">
+            <a class="col"><i class="fa-brands fa-twitter"></i></a>
+            <a class="col"><i class="fa-brands fa-dribbble"></i></a>
+            <a class="col"><i class="fa-brands fa-behance"></i></a>
+            <a class="col"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+        <div class="copyright">Website by ShopiLaunch . Copyright SunplantShop</div>
+        
+    </footer>
+    
+</body>
+</html>
